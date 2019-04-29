@@ -1,0 +1,15 @@
+<!--pages/mycourse/mycourse.wxml-->
+<view class="page">
+  <view class="my_course">
+    <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">
+        <view>课程1</view>
+      </view>
+    </navigator>
+    <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">
+        <view>课程2</view>
+      </view>
+    </navigator>
+  </view>
+</view>
