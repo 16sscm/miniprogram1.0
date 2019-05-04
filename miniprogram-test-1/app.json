@@ -5,7 +5,10 @@
     "pages/userInfo/userInfo",
     "pages/course/course",
     "pages/mycourse/mycourse",
-    "pages/collection/collection"
+    "pages/collection/collection",
+    "pages/lessonDetail/lessonDetail",
+    "pages/dialog/dialog",
+    "pages/register/Register"
   ],
   "window": {
     "backgroundTextStyle": "light",
