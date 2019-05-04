@@ -23,7 +23,7 @@ Page({
         userList = res.data;
         var hasRegister = false;
         for (var i = 0; i < userList.length; i++) {
-          if (userList[i].weixinname == that.data.nickName) {
+          if (userList[i].signature == app.usersignature) {
             hasRegister = true;
             wx.setStorageSync('userID', userList[i].id );
             break;

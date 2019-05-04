@@ -1,3 +1,4 @@
+const app=getApp()
 Page({
 
   /**
@@ -65,6 +66,7 @@ Page({
     var newStudent = {
       id:this.uuid(),
       weixinname:nickname,
+      signature:app.usersignature,
       mailbox:this.data.information.phone,
       sex:this.data.userSex,
       name:this.data.information.name,

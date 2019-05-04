@@ -204,6 +204,7 @@
     {
       "id": 1,
       "weixinname": "ffff",
+      "signature": "ss",
       "mailbox": "sxc@cxk.com",
       "sex": "male",
       "name": "sxc",
@@ -223,6 +224,7 @@
     {
       "id": "b6b7e5b2-8ac8-4a9c-88ad-c03ae3ba5f20",
       "weixinname": "听风起尘",
+      "signature": "hh",
       "mailbox": "163585@qq.com",
       "sex": "男",
       "name": "易旭日",
@@ -238,6 +240,17 @@
           "note": "方法"
         }
       ]
+    },
+    {
+      "id": "1d7a01b1-3b8e-40ef-8e5e-6f18ddc72ad3",
+      "weixinname": "庭中",
+      "signature": "{\"nickName\":\"庭中\",\"gender\":1,\"language\":\"zh_CN\",\"city\":\"Enshi\",\"province\":\"Hubei\",\"country\":\"China\",\"avatarUrl\":\"https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEKXLAsUygdrmMCWDBIy1XCappNRiavVBTmW4ZPYeHMQzdib6834yZ5gRkq7jmiajpkC2tggAhUUI2bCQ/132\"}",
+      "mailbox": "aa",
+      "sex": "男",
+      "name": "gyz",
+      "studentNumber": "aa",
+      "take_course": [],
+      "collect": []
     }
   ],
   "answer_record": [
