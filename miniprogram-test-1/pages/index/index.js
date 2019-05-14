@@ -7,37 +7,61 @@ Page({
    */
   data: {
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    nickName:''
   },
   gotoUserInfoPage: function() {
-    console.log(this.data.hasUserInfo)
-    if (this.data.hasUserInfo) {
-     // wx.navigateTo({
-      //  url: '/pages/userInfo/userInfo'
-    //  })
-    wx.switchTab({
-      url: '/pages/userInfo/userInfo'
-    })
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '请先微信授权',
-        success: function(res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else {
-            console.log('用户点击取消')
+    console.log(this.data.hasUserInfo);
+    let userList = [];
+    var that = this;
+    wx.request({
+      url: 'http://localhost:5300/student',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function(res) {
+        userList = res.data;
+        var hasRegister = false;
+        for (var i = 0; i < userList.length; i++) {
+          if (userList[i].signature == app.usersignature) {
+            hasRegister = true;
+            wx.setStorageSync('userID', userList[i].id );
+            break;
           }
-
         }
-      })
-    }
+        if (that.data.hasUserInfo) {
+          if (hasRegister) {
+            wx.switchTab({
+              url: '/pages/course/course'
+            })
+          } else {
+            wx.setStorageSync('username', that.data.nickName)
+            wx.navigateTo({
+              url: '/pages/register/Register',
+            })
+          }
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '请先微信授权',
+            success: function(res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else {
+                console.log('用户点击取消')
+              }
+
+            }
+          })
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that=this
+    var that = this
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
@@ -45,7 +69,8 @@ Page({
           wx.getUserInfo({
             success(res) {
               that.setData({
-                hasUserInfo: true
+                hasUserInfo: true,
+                nickName:res.userInfo.nickName
               })
               console.log(res.userInfo)
             }
@@ -62,7 +87,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '已授权',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           console.log('用户点击确定')
         } else {
